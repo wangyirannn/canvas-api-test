@@ -41,7 +41,7 @@ window.onload = function () {
     }, 30); //每30毫秒刷新一次
     //局部渲染：仅渲染整个场景中改变的一部分，但是需要更大的内存空间来计算
     var tf1 = new TextField();
-    tf1.text = "This is";
+    tf1.text = "THIS IS";
     tf1.x = 80;
     tf1.y = 20;
     tf1.size = 20;
