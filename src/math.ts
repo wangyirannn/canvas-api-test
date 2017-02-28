@@ -1,4 +1,6 @@
-/*module math {
+
+
+module math {
 
 
     export class Point {
@@ -20,7 +22,7 @@
     /**
      * 使用伴随矩阵法求逆矩阵
      * http://wenku.baidu.com/view/b0a9fed8ce2f0066f53322a9
-
+     */
     export function invertMatrix(m: Matrix): Matrix {
 
 
@@ -66,6 +68,27 @@
     var TwoPI = PI * 2;
     var DEG_TO_RAD: number = Math.PI / 180;
 
+    export class Rectangle{
+        x = 0;
+        y = 0;
+        width = 1;
+        height = 1;
+
+        isPointInRectangle(x : number,y : number){
+            var point = new Point(x,y);
+            var rect = this;
+            if(point.x < rect.x + rect.width &&
+               point.x > rect.x &&
+               point.y < rect.y + rect.height &&
+               point.y > rect.y){
+                   return true;
+               }
+               else{
+                   return false;
+               }
+        }
+    }
+
 
     export class Matrix {
 
@@ -110,4 +133,3 @@
         }
     }
 }
-*/
