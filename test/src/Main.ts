@@ -292,16 +292,24 @@ class Main extends engine.DisplayObjectContainer {
         this.NPC02.x = 256;
         this.NPC02.y = 320;
 
-        this.dialoguePanel = DialoguePanel.getInstance() ;
+        this.dialoguePanel = DialoguePanel.getInstance();
         this.dialoguePanel.SetMain(this);
         this.stage.addChild(this.dialoguePanel);
         this.dialoguePanel.x = 200;
         this.dialoguePanel.y = 200;
 
-        this.userPanelButton = this.createBitmapByName("userPanelButton.png");
+
+        this.userPanelButton = new engine.Bitmap();
+        engine.RES.getRes("userPanelButton.png").then((value) =>{
+            this.userPanelButton.texture = value;
+            this.userPanelButton.setWidth(this.userPanelButton.texture.width);
+            this.userPanelButton.setHeight(this.userPanelButton.texture.height);
+            this.userPanelButton.x = 10 * 64 - this.userPanelButton.getWidth();
+            this.userPanelButton.y = 0;
+        })
+        // this.userPanelButton = new engine.Bitmap("userPanelButton.png");
         this.stage.addChild(this.userPanelButton);
-        this.userPanelButton.x = 10 * 64 - this.userPanelButton.getWidth();
-        this.userPanelButton.y = 0;
+        
 
 
 
@@ -364,7 +372,7 @@ class Main extends engine.DisplayObjectContainer {
         //  console.log("hero fightpower :" + this.hero.getFightPower().toFixed(0));
 
          this.userPanel = new UserPanel();
-         //this.addChild(this.userPanel);
+         //this.stage.addChild(this.userPanel);
          this.userPanel.showHeroInformation(this.hero);
          this.userPanel.x = (this.stage.width - this.userPanel.getWidth()) / 2;
          this.userPanel.y = (this.stage.height - this.userPanel.getHeight()) / 2;
@@ -504,7 +512,12 @@ class Main extends engine.DisplayObjectContainer {
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
      */
     private createBitmapByName(name:string):engine.Bitmap {
-        var result = new engine.Bitmap(name);
+        var result = new engine.Bitmap();
+        engine.RES.getRes(name).then((value) => {
+                    result.texture = value;
+                    result.setWidth(result.texture.width);
+                    result.setHeight(result.texture.height);
+                    });
         return result;
     }
 

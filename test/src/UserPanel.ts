@@ -280,7 +280,7 @@ class EquipmentInformationPanel extends engine.DisplayObjectContainer{
         this.propertiesField.setWidth(200);
         this.propertiesField.setHeight(300);
         this.addChild(this.propertiesField);
-        this.propertiesField.textColor = "0xffffff";
+        this.propertiesField.textColor = "#ffffff";
         this.propertiesField.size = 20;
         this.propertiesField.x = 30;
         this.propertiesField.y = this.nameField.y + 55;

@@ -209,8 +209,8 @@ class Tile extends engine.DisplayObjectContainer{
         this.addChild(this.bitmaps);
         engine.RES.getRes(tiledata.pictureName).then((value) => {
         this.bitmaps.texture = value;
-        this.bitmaps.setWidth(this.bitmaps.PersonBitmap.texture.width);
-        this.bitmaps.setHeight(this.bitmaps.PersonBitmap.texture.height);
+        this.bitmaps.setWidth(this.bitmaps.texture.width);
+        this.bitmaps.setHeight(this.bitmaps.texture.height);
         });
         this.bitmaps.width = this.bitmapSize;
         this.bitmaps.height = this.bitmapSize;
